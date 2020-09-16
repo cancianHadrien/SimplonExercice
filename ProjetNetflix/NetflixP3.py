@@ -117,18 +117,17 @@ donnees = pd.read_csv('/home/simplon/Téléchargements/Netflix/netflix_titles.cs
 from sqlalchemy import create_engine
 
 df = pd.read_csv("/home/simplon/Téléchargements/Netflix/netflix_titles.csv")
-engine = create_engine('mysql+pymysql://nouveau_utilisateur:mot_de_passe@localhost:3306/netflix')
+engine = create_engine('mysql+pymysql://hadrien:H01011997C@localhost:3306/netflix')
 
 #df=id/categorie
 cat_name = pd.DataFrame(data = df,columns = ["ca_id", "cat_name"])
-cat_name = cat_name.dropna(inplace=True)
+cat_name.drop_duplicates().dropna(inplace=True)
 
 
 #df=id/cast
 cast = pd.DataFrame(data = df,columns = ["ca_id", "cast_name"])
+cast.dropna(inplace=True)
 
-cast = cast.dropna(inplace=True)
-print(cast)
 
 #df=id/director
 directors = pd.DataFrame(data = df,columns = ["ca_id", "dir_name"])
@@ -221,7 +220,7 @@ df.to_sql('catalogue', con=engine, if_exists='append', index=False)
 country.to_sql('country', con=engine, if_exists='append', index=False)
 cast.to_sql('cast', con=engine, if_exists='append', index=False)
 dir.to_sql('directors', con=engine, if_exists='append', index=False)
-
+categories.to_sql('category', con=engine, if_exists='append', index=False)
 
 
 #insertion tables d'association
