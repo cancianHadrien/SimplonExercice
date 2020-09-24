@@ -5,7 +5,6 @@
 	<title>Titre de la page</title>
 </head>
 
-
 <body>
     <h1>Liste des films produit par : {{ nom }}</h1>
     <table>
@@ -13,19 +12,26 @@
 		<tr>
 			<th>Titre</th>
 		</tr>
-		
+
 		{% for i in films_dir.index: %}
         <tr>
-            <td>{{ films_dir.iloc[i]['title'] }}</td>
+            <td>{{ films_dir.iloc[i]['ca_title']}}</td>
+            <td>{{ films_dir.iloc[i]['categories']}}</td>
         </tr>
 		{% endfor %}
        
     </table>
 	
-	<img src="categorie.png" alt="Catégorie" />
+    <img src="/home/simplon/Exercices/SimplonExercice/NetlfixDashboard/nbr_categories.png" alt="Nbr_Categories" />
+	<img src="/home/simplon/Exercices/SimplonExercice/NetlfixDashboard/HistoriqueFrequenceFilm.png" alt="Fréquence" />
+	
+	<img src="/home/simplon/Exercices/SimplonExercice/NetlfixDashboard/categories.png" alt="Categories" />
+    <img src="/home/simplon/Exercices/SimplonExercice/NetlfixDashboard/rating.png" alt="Rating" />
+
+	
+
 	
 	<footer> 
-	{{ time_stamp }}
 	</footer> 
 
 </body>
