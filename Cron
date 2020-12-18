@@ -1,0 +1,9 @@
+crontab - e
+
+0 0 * * 5 mysqldump -u hadrien -p  sakila > sakila.sql
+
+0 0 * * 5 mysql -u hadrien -p Sakila2 < sakila.sql
+
+0 0 * * 5 mysqlcheck -u hadrien -p Sakila2
+
+#j'ai choisi de faire une sauvegarde une fois par semaine pour le principe d'une semaine de travail et sauvegardé tous les changements nécessaires
